@@ -4,7 +4,12 @@
 ```
 npm install
 ```
+```
+Inicializar la api en Visual Studio (ProyectoFinalapi.zip)
+Agregar la base de datos a SQL server y levantarla
 
+Cuando estos dos pasos estén listos, compilarlo con el siguiente paso
+```
 ### Compiles and hot-reloads for development
 ```
 npm run serve
