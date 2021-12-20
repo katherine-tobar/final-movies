@@ -5,8 +5,8 @@
 npm install
 ```
 ```
-Inicializar la api en Visual Studio (ProyectoFinalapi.zip)
-Agregar la base de datos a SQL server y levantarla
+Inicializar la api en Visual Studio (ProyectoFinalApi.zip)
+Agregar la base de datos a SQL server y levantarla (script.sql)
 
 Cuando estos dos pasos estén listos, compilarlo con el siguiente paso
 ```
