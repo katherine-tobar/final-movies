@@ -1,32 +1,55 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <v-app-bar app color="pink lighten-2" dark>
+      <v-row justify="space-between" class="ma-3">
+        <a href="/" style="text-decoration: none; color: white" class="d-flex align-start"> 
+          <span class="group pr-2">
+            <v-icon large>mdi-movie-star</v-icon>
+          </span>
+          <h2>Home</h2>
+        </a>
+        <div style="display:flex; flex-direction:row;align-items:center">
+          <searchBar/>
+          <a href="/add"  style="text-decoration: none; color: white">
+            <v-btn  color="red lighten-5" style="color:black;">
+              <v-icon left> mdi-plus </v-icon>
+              Add
+            </v-btn>
+          </a>
+        </div>
+      </v-row>
+    </v-app-bar>
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import searchBar from './components/SearchBar.vue'
+import { mapActions } from "vuex";
 
-#nav {
-  padding: 30px;
-}
+export default {
+  name: "App",
+    mounted() {
+      this.getMoviesAPI(),
+      this.getActorAPI(),
+      this.getDirectorAPI()
+  },
+  data: () => ({
+    //
+  }),
+  components: {
+    searchBar,
+  },
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  methods: {
+    ...mapActions({
+      getMoviesAPI: "getMoviesAPI",
+      getActorAPI: "getActorAPI",
+      getDirectorAPI: "getDirectorAPI"
+    }),
+    
+  },
+};
+</script>
